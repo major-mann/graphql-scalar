@@ -31,13 +31,15 @@ const schema = makeExecutableSchema({
             value4: createStaticResolver(VALUES[3])
         }
     }
-})
+});
 
 if (!module.parent) {
     runTest()
         .then(
-            () => console.log(chalk.bold.green(`✓ All tests passed ✓`)),
-            err => console.error(chalk.red(`An error occured during test execution: ${err.stack}`))
+            () => console.log(chalk.bold.green(`✓ All tests passed ✓`)), // eslint-disable-line no-console
+            err => console.error( // eslint-disable-line no-console
+                chalk.red(`An error occured during test execution: ${err.stack}`)
+            )
         );
 }
 
@@ -51,20 +53,20 @@ async function runTest() {
 }
 
 async function echoTest(value) {
-    console.info(chalk.yellow(`Echo test of ${JSON.stringify(value)}`));
-    const result = await execQuery(`query { echo(value: ${JSON.stringify(value)}) } `);
+    console.info(chalk.yellow(`Echo test of ${JSON.stringify(value)}`)); // eslint-disable-line no-console
+    const result = await execQuery(`query { echo(value: ${JSON.stringify(value)}) } `); // eslint-disable-line no-console
     assert.strictEqual(result.echo, value);
-    console.info(chalk.green(`Passed`));
+    console.info(chalk.green(`Passed`)); // eslint-disable-line no-console
 }
 
 async function objectTest() {
-    console.info(chalk.yellow(`Object test`));
+    console.info(chalk.yellow(`Object test`)); // eslint-disable-line no-console
     const result = await execQuery(`query { test { value1, value2, value3, value4 } } `);
     assert.strictEqual(result.test.value1, VALUES[0]);
     assert.strictEqual(result.test.value2, VALUES[1]);
     assert.strictEqual(result.test.value3, VALUES[2]);
     assert.strictEqual(result.test.value4, VALUES[3]);
-    console.info(chalk.green(`Passed`));
+    console.info(chalk.green(`Passed`)); // eslint-disable-line no-console
 }
 
 async function execQuery(query, variables) {
@@ -81,7 +83,7 @@ function echo(source, args) {
     return args.value;
 }
 
-function testQuery(source, args) {
+function testQuery() {
     return {
         value1: VALUES[0],
         value2: VALUES[1],
