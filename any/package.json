@@ -1,6 +1,6 @@
 {
   "name": "@major-mann/graphql-scalar-any",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A custom scalar that can take strings, integers, floats or boolean",
   "main": "src/index.js",
   "keywords": [
