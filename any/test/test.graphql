@@ -1,0 +1,13 @@
+scalar Any
+
+type MyTestType {
+    value1: Any
+    value2: Any
+    value3: Any
+    value4: Any
+}
+
+type Query {
+    echo(value: Any): Any
+    test: MyTestType
+}

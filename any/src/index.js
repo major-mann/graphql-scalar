@@ -16,7 +16,7 @@ module.exports = new GraphQLScalarType({
             case Kind.FLOAT:
                 return parseFloat(ast.value);
             case Kind.BOOLEAN:
-                return ast.value === `true`;
+                return ast.value;
             default:
                 return ast.value;
         }
